@@ -11,10 +11,10 @@
       <span>Date</span>
     </div>
     <ul class="catalog-list" aria-label="Archive entries" role="list">
-      @for (entry of entries; track entry.id) {
+      @for (entry of entries; track entry.images[0].id) {
         <li>
-          <a class="catalog-link catalog-grid" [routerLink]="['/archive', entry.id]">
-            <span class="entry-id">{{ entry.id }}</span>
+          <a class="catalog-link catalog-grid" [routerLink]="['/archive', entry.images[0].id]">
+            <span class="entry-id">{{ formatEntryIds(entry) }}</span>
             <span class="catalog-title">{{ entry.title }}</span>
             <span class="catalog-date">{{ entry.date }}</span>
           </a>

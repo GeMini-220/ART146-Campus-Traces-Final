@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { archiveEntries } from './archive-entries';
+import { archiveEntries, formatEntryIds } from './archive-entries';
 
 @Component({
   selector: 'app-home-page',
@@ -10,4 +10,5 @@ import { archiveEntries } from './archive-entries';
 })
 export class HomePage {
   protected readonly featuredEntry = archiveEntries.at(0);
+  protected readonly formatEntryIds = formatEntryIds;
 }

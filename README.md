@@ -13,6 +13,6 @@ Open `http://localhost:4200/`. Run `npm run build` to create a production build 
 
 ## Add an archive entry
 
-1. Place the image in [public/entries](public/entries).
-2. Add a record to [archive-entries.ts](src/app/archive-entries.ts) using entry `001` as a template. Use a unique string ID such as `'002-a'` and an image path such as `'entries/Entry002-a.jpg'`.
-3. Open the archive to see the new record. Its detail page is available at `/archive/002-a`.
+1. Place the photos in [public/entries](public/entries).
+2. Add a record to [archive-entries.ts](src/app/archive-entries.ts). Give each item in `images` a unique string `id`, a photo path such as `'entries/Entry002-a.jpg'`, and descriptive `alt` text.
+3. Open the archive to see the new record. The list links to the first photo. A direct link such as `/archive/002-b` opens the record on that photo.

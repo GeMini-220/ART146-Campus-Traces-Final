@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { archiveEntries } from './archive-entries';
+import { archiveEntries, formatEntryIds } from './archive-entries';
 
 @Component({
   selector: 'app-archive-page',
@@ -10,4 +10,5 @@ import { archiveEntries } from './archive-entries';
 })
 export class ArchivePage {
   protected readonly entries = archiveEntries;
+  protected readonly formatEntryIds = formatEntryIds;
 }

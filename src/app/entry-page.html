@@ -2,15 +2,38 @@
   <a class="back-link" routerLink="/archive">Back to archive</a>
 
   @if (entry(); as record) {
+    @let hasCarousel = record.images.length > 1;
+    @let image = record.images[activeIndex()];
     <article class="entry-layout">
       <h1 class="entry-title" id="entry-title">{{ record.title }}</h1>
-      <figure class="photo-mat entry-photo">
-        <img [src]="record.image.src" [alt]="record.image.alt" fetchpriority="high">
+      <figure
+        class="entry-photo"
+        [attr.aria-label]="hasCarousel ? 'Entry photographs' : null"
+        [attr.aria-roledescription]="hasCarousel ? 'carousel' : null"
+      >
+        <div class="photo-mat">
+          <img id="entry-image" [class.carousel-image]="hasCarousel" [src]="image.src" [alt]="image.alt" fetchpriority="high">
+        </div>
+        @if (hasCarousel) {
+          <figcaption
+            class="carousel-controls"
+            (keydown.arrowleft)="moveImage(-1, $event)"
+            (keydown.arrowright)="moveImage(1, $event)"
+          >
+            <button type="button" aria-controls="entry-image" (click)="moveImage(-1)">Previous</button>
+            <span class="carousel-position" role="status">
+              <span class="entry-id">{{ image.id }}</span>
+              <span aria-hidden="true">·</span>
+              {{ activeIndex() + 1 }} of {{ record.images.length }}
+            </span>
+            <button type="button" aria-controls="entry-image" (click)="moveImage(1)">Next</button>
+          </figcaption>
+        }
       </figure>
       <dl class="entry-details">
         <div>
-          <dt>ID</dt>
-          <dd class="entry-id">{{ record.id }}</dd>
+          <dt>{{ hasCarousel ? 'IDs' : 'ID' }}</dt>
+          <dd class="entry-id">{{ formatEntryIds(record) }}</dd>
         </div>
         <div>
           <dt>Date</dt>

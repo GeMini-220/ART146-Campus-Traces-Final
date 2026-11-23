@@ -6,13 +6,14 @@
   </div>
 
   @if (featuredEntry; as entry) {
-    <a class="featured-entry" [routerLink]="['/archive', entry.id]" aria-labelledby="featured-caption">
+    @let image = entry.images[0];
+    <a class="featured-entry" [routerLink]="['/archive', image.id]" aria-labelledby="featured-caption">
       <figure>
         <div class="photo-mat">
-          <img class="featured-photo" [src]="entry.image.src" [alt]="entry.image.alt" fetchpriority="high">
+          <img class="featured-photo" [src]="image.src" [alt]="image.alt" fetchpriority="high">
         </div>
         <figcaption class="featured-caption" id="featured-caption">
-          <span class="entry-id">{{ entry.id }}</span>
+          <span class="entry-id">{{ formatEntryIds(entry) }}</span>
           <span class="featured-title">{{ entry.title }}</span>
         </figcaption>
       </figure>

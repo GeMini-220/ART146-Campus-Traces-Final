@@ -12,8 +12,10 @@ export const routes: Routes = [
     path: 'archive/:id',
     component: EntryPage,
     resolve: {
-      entry: ({ paramMap }: ActivatedRouteSnapshot) =>
-        archiveEntries.find((entry) => entry.id === paramMap.get('id')),
+      entry: ({ paramMap }: ActivatedRouteSnapshot) => {
+        const id = paramMap.get('id');
+        return archiveEntries.find((entry) => entry.images.some((image) => image.id === id));
+      },
     },
     title: ({ paramMap }) => `Entry ${paramMap.get('id')} | Campus Traces`,
   },
