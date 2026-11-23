@@ -11,6 +11,12 @@ npm start
 
 Open `http://localhost:4200/`. Run `npm run build` to create a production build in `dist/campus-traces/browser/`.
 
+## Deploy to GitHub Pages
+
+In the GitHub repository, open **Settings → Pages** and select **GitHub Actions** as the publishing source. [GitHub Pages setup](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
+
+The [deployment workflow](.github/workflows/deploy-pages.yml) builds and publishes the site on each push to `main`. You can also run **Deploy to GitHub Pages** from the **Actions** tab. The deployment displays the published URL.
+
 ## Add an archive entry
 
 1. Place the photos in [public/entries](public/entries).
