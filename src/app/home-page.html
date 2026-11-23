@@ -1,0 +1,21 @@
+<section class="home-layout" aria-labelledby="home-title">
+  <div class="home-intro">
+    <h1 id="home-title" class="home-title">Campus <em>Traces</em></h1>
+    <p class="intro-copy">This is an archive of traces of human activity. It records the evidence and changes of human presence through overlooked traces of activities left at ordinary campus spaces - a narrative of campus life beyond official documentations. How does this narrative shapes our living and working space? How does it shape society in a broader sense, through unnoticed actions accumulated over time?</p>
+    <a class="primary-action" routerLink="/archive">Browse the archive</a>
+  </div>
+
+  @if (featuredEntry; as entry) {
+    <a class="featured-entry" [routerLink]="['/archive', entry.id]" aria-labelledby="featured-caption">
+      <figure>
+        <div class="photo-mat">
+          <img class="featured-photo" [src]="entry.image.src" [alt]="entry.image.alt" fetchpriority="high">
+        </div>
+        <figcaption class="featured-caption" id="featured-caption">
+          <span class="entry-id">{{ entry.id }}</span>
+          <span class="featured-title">{{ entry.title }}</span>
+        </figcaption>
+      </figure>
+    </a>
+  }
+</section>

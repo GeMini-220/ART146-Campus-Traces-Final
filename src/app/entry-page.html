@@ -1,0 +1,36 @@
+<section class="entry-page" aria-labelledby="entry-title">
+  <a class="back-link" routerLink="/archive">Back to archive</a>
+
+  @if (entry(); as record) {
+    <article class="entry-layout">
+      <h1 class="entry-title" id="entry-title">{{ record.title }}</h1>
+      <figure class="photo-mat entry-photo">
+        <img [src]="record.image.src" [alt]="record.image.alt" fetchpriority="high">
+      </figure>
+      <dl class="entry-details">
+        <div>
+          <dt>ID</dt>
+          <dd class="entry-id">{{ record.id }}</dd>
+        </div>
+        <div>
+          <dt>Date</dt>
+          <dd>{{ record.date }}</dd>
+        </div>
+        <div>
+          <dt>Time</dt>
+          <dd>{{ record.time }}</dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd>{{ record.location }}</dd>
+        </div>
+        <div>
+          <dt>Coordinates</dt>
+          <dd>{{ record.coordinates }}</dd>
+        </div>
+      </dl>
+    </article>
+  } @else {
+    <h1 class="page-title" id="entry-title">Entry not found</h1>
+  }
+</section>

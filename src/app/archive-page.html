@@ -1,0 +1,27 @@
+<section class="archive-page" aria-labelledby="archive-title">
+  <header class="archive-heading">
+    <h1 id="archive-title" class="page-title">Archive</h1>
+    <p class="entry-count">{{ entries.length }} {{ entries.length === 1 ? 'entry' : 'entries' }}</p>
+  </header>
+
+  @if (entries.length) {
+    <div class="catalog-labels catalog-grid" aria-hidden="true">
+      <span>ID</span>
+      <span>Title</span>
+      <span>Date</span>
+    </div>
+    <ul class="catalog-list" aria-label="Archive entries" role="list">
+      @for (entry of entries; track entry.id) {
+        <li>
+          <a class="catalog-link catalog-grid" [routerLink]="['/archive', entry.id]">
+            <span class="entry-id">{{ entry.id }}</span>
+            <span class="catalog-title">{{ entry.title }}</span>
+            <span class="catalog-date">{{ entry.date }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="empty-state">No entries have been added yet.</p>
+  }
+</section>
