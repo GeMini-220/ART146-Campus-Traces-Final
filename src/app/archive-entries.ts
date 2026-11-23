@@ -55,6 +55,20 @@ export const archiveEntries: readonly ArchiveEntry[] = [
     ],
   },
   {
+    title: 'Black, used sports mouthguard on bench; Black scuff marks and scratches on wall',
+    date: 'Oct 25th, 2026',
+    time: '2:17 PM',
+    location: 'ARC Training Zone',
+    coordinates: '33°38.6015′ N 117°49.6454′ W',
+    images: [
+      {
+        id: '003',
+        src: 'entries/Entry003.jpg',
+        alt: 'A black U-shaped mouthguard rests on a wooden bench below a pale wall with dark scuffs and scratches.',
+      },
+    ],
+  },
+  {
     title: 'Re: Indentation and scribble marks on pillar',
     date: 'Nov 12th, 2026',
     time: '11:47 AM',
