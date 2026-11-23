@@ -10,6 +10,8 @@ export interface ArchiveEntry {
   readonly time: string;
   readonly location: string;
   readonly coordinates: string;
+  readonly previous?: string;
+  readonly next?: string;
   readonly images: readonly [ArchiveImage, ...ArchiveImage[]];
 }
 
@@ -24,6 +26,7 @@ export const archiveEntries: readonly ArchiveEntry[] = [
     time: '10:22 AM',
     location: 'ART STUDIO 165',
     coordinates: '33°39.0115′ N 117°50.6998′ W',
+    next: '004',
     images: [
       {
         id: '001',
@@ -48,6 +51,21 @@ export const archiveEntries: readonly ArchiveEntry[] = [
         id: '002-b',
         src: 'entries/Entry002-b.jpg',
         alt: 'A long, curved black scuff and smaller marks on an off-white wall with chipped paint along the lower edge.',
+      },
+    ],
+  },
+  {
+    title: 'Re: Indentation and scribble marks on pillar',
+    date: 'Nov 12th, 2026',
+    time: '11:47 AM',
+    location: 'ART STUDIO 165',
+    coordinates: '33°39.0115′ N 117°50.6998′ W',
+    previous: '001',
+    images: [
+      {
+        id: '004',
+        src: 'entries/Entry004.jpg',
+        alt: 'Black scribbles, chipped paint, and deep dents along the rounded edge of an off-white pillar.',
       },
     ],
   },

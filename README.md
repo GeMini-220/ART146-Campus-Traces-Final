@@ -22,3 +22,5 @@ The [deployment workflow](.github/workflows/deploy-pages.yml) builds and publish
 1. Place the photos in [public/entries](public/entries).
 2. Add a record to [archive-entries.ts](src/app/archive-entries.ts). Give each item in `images` a unique string `id`, a photo path such as `'entries/Entry002-a.jpg'`, and descriptive `alt` text.
 3. Open the archive to see the new record. The list links to the first photo. A direct link such as `/archive/002-b` opens the record on that photo.
+
+To link revisits, set `previous` or `next` on a record to an existing image ID. To link in both directions, set `next` on the earlier record and `previous` on the later record.

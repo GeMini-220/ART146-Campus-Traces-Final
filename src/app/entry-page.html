@@ -53,6 +53,16 @@
         </div>
       </dl>
     </article>
+    @if (record.previous || record.next) {
+      <nav class="entry-navigation" aria-label="Linked entries">
+        @if (record.previous; as previousId) {
+          <a class="primary-action" [routerLink]="['/archive', previousId]">Previous entry</a>
+        }
+        @if (record.next; as nextId) {
+          <a class="primary-action next-entry" [routerLink]="['/archive', nextId]">Next entry</a>
+        }
+      </nav>
+    }
   } @else {
     <h1 class="page-title" id="entry-title">Entry not found</h1>
   }
